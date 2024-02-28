@@ -1,8 +1,10 @@
+import TaskForm from "./component/TaskForm";
 
 function App() {
   return (
     <div >
-      <h1>personal-task-manager</h1>
+      <h1>Personal Task Manager</h1>
+      <TaskForm/>
     </div>
   );
 }
