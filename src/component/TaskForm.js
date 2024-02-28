@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 
-const TaskForm = () => {
+const TaskForm = ({addTask}) => {
 
   const [text, setText] = useState('');
-  
+
   const handleSubmit = e => {
     e.preventDefault();
     if (!text.trim()) return;
+    addTask(text);
     setText('');
   };
 
