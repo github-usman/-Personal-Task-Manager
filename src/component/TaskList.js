@@ -1,13 +1,14 @@
 import React from 'react';
+import Task from './Task';
 
-const TaskList = ({ tasks }) => {
+// this component to display a list of tasks
+const TaskList = ({ tasks, onDelete, onToggle }) => {
   return (
     <div>
       {tasks.map(task => (
         <div key={task.id}>
-            <h1>{task.text}</h1>
+            <Task key={task.id} task={task} onDelete={onDelete} onToggle={onToggle} />
         </div>
-       
       ))}
     </div>
   );

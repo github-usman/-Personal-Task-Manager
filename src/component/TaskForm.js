@@ -4,6 +4,7 @@ const TaskForm = ({addTask}) => {
 
   const [text, setText] = useState('');
 
+  //after input user can add
   const handleSubmit = e => {
     e.preventDefault();
     if (!text.trim()) return;
