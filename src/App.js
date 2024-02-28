@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TaskForm from "./component/TaskForm";
 import TaskList from "./component/TaskList";
 import "./styles.css"
@@ -6,6 +6,26 @@ import "./styles.css"
 function App() {
 
   const [tasks, setTasks] = useState([]);
+
+  // get data from local storage
+  useEffect(() => {
+    const storedTasks = JSON.parse(localStorage.getItem('tasks'));
+    if (storedTasks) setTasks(storedTasks);
+    return () => {
+      localStorage.removeItem('tasks');
+    };
+  }, []);
+ 
+  
+  // Save tasks to local storage 
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+    return () => {
+      localStorage.removeItem('tasks');
+    };
+  }, [tasks]);
+  
+
   // add task
   const addTask = text => {
     const newTask = { id: Date.now(), text, completed: false };
