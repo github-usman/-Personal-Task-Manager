@@ -1,11 +1,17 @@
 import styled from 'styled-components'
 
 export const Body = styled.div`
-  margin: 10px;
+  margin:10px 1px;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   width: 90%;
+  @media (max-width: 900px) {
+    width: 95%;
+  }
+  @media (max-width: 700px) {
+    width: 100%;
+  }
 `
 
 export const Container = styled.div`
